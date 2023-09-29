@@ -8,7 +8,7 @@ The primary data provides an updated series of KPST measures for patent similari
 
 #### Data Version:
 
-The version released on Sept 10, 2023 is the latest data that updates until the end of 2022.
+The version released on Sept 29, 2023 is the latest data that updates until the end of 2022.
 
 
 #### Data Description:
@@ -66,11 +66,11 @@ For the patent citations data, the variable definitions are:
 
 3. The patent's importance measure and breakthrough indicators may not precisely match the original version of the data in the paper due to the following reasons:
 
-  a) **Text source**: We download the text from Google Patents again, and Google Patent texts change as improvements in OCR technology.
+  - **Text source**: We download the text from Google Patents again, and Google Patent texts change as improvements in OCR technology.
   
-  b) **Year mismatch**: We find that 294 patents have the wrong filing years (filed year > issued year) in the original patent-year linkage file [PatentChar.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentChar.dta.zip). We modify this by assuming their filing years identical to their issued years, given those mismatched patents primarily from year 1882-1884. The updated information on the patent's filing and issued years are also included in ./data/**PatentSimilarityImportanceBreakthrough_forPost2022.csv**.
+  - **Year mismatch**: We find that 294 patents have the wrong filing years (filed year > issued year) in the original patent-year linkage file [PatentChar.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentChar.dta.zip). We modify this by assuming their filing years identical to their issued years, given those mismatched patents primarily from year 1882-1884. The updated information on the patent's filing and issued years are also included in ./data/**PatentSimilarityImportanceBreakthrough_forPost2022.csv**.
   
-  c) **Text cleaning**: We improve the text cleaning process by excluding a few more frequently occurring but irrelevant phrases, such as "United States Patent Office," "sheets-sheet," etc., in the raw text files. Those phrases predominantly appear in the patents from earlier years (before 1926).
+  - **Text cleaning**: We improve the text cleaning process by excluding a few more frequently occurring but irrelevant phrases, such as "United States Patent Office," "sheets-sheet," etc., in the raw text files. Those phrases predominantly appear in the patents from earlier years (before 1926).
 
 4. The patent pairwise citation data is constructed from KPST pairwise citations by augmenting it with newer pairwise citation records from USPTO. The forward citation data can be further constructed by counting the forward citations given year horizons, based on the gap of filing years between the citing and cited patents, as referred to the original KPST forward citation file [PatentCitations.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentCitations.dta.zip).
 
