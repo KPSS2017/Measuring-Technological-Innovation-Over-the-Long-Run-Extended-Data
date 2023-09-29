@@ -68,7 +68,7 @@ For the patent citations data, the variable definitions are:
 
     - **Text source**: We download the text from Google Patents again, and Google Patent texts change as improvements in OCR technology.
   
-    - **Year mismatch**: We find that 294 patents have the wrong filing years (filed year > issued year) in the original patent-year linkage file [PatentChar.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentChar.dta.zip). We modify this by assuming their filing years identical to their issued years, given those mismatched patents primarily from year 1882-1884. The updated information on the patent's filing and issued years are also included in ./data/**PatentSimilarityImportanceBreakthrough_forPost2022.csv**.
+    - **Year mismatch**: We find that 294 patents have the wrong filing years (filed year > issued year) in the original patent-year linkage file [PatentChar.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentChar.dta.zip). We modify this by assuming their filing years identical to their issued years, given those mismatched patents primarily from year 1882-1884. The updated information on the patent's filing and issued years are also included in **PatentSimilarityImportanceBreakthrough_forPost2022.csv**.
   
     - **Text cleaning**: We improve the text cleaning process by excluding a few more frequently occurring but irrelevant phrases, such as "United States Patent Office," "sheets-sheet," etc., in the raw text files. Those phrases predominantly appear in the patents from earlier years (before 1926).
 
