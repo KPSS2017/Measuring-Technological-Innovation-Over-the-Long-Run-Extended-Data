@@ -1,6 +1,7 @@
-# Updates and Extension (till 2022) from Measuring Technological Innovation Over the Long Run. 2021. 
+# Updates and Extension of Measuring Technological Innovation Over the Long Run. 2021. 
 
-The primary data provides an updated series of KPST measures for patent similarity, patent importance, breakthrough indicator, patent filing and issuance years, as well as forward citations, spanning 1836-2022 following [Kelly, B., Papanikolaou, D., Seru, A. and Taddy, M., 2021.](https://www.aeaweb.org/articles?id=10.1257/aeri.20190499). The other datasets provide the linkage file between the patent number and its CPC class, and patent-patent pairwise citations.
+The main data file provides an updated series of KPST indicators for patent importance and an indicator of whether the patent constitutes a breakthrough patent. The extended data is constructed based on updating the methodology of [Kelly, B., Papanikolaou, D., Seru, A. and Taddy, M., 2021.](https://www.aeaweb.org/articles?id=10.1257/aeri.20190499). The other datasets provide the linkage file between the patent number and its CPC class, and patent-patent pairwise citations.
+
 
 
 
@@ -15,9 +16,9 @@ The version released on Sept 29, 2023 is the latest data that updates until the 
 
 We provide two updated data sets constructed from the paper here:
 
-- **PatentSimilarityImportanceBreakthrough_forPost2022.csv**: Patent level panel data with patent similarities, importance, and breakthrough indicators from 1836 to 2022
-- **PatentFullCPC_forPost2022.csv**: Patent-CPC class match data spanning from 1836 to 2022
-- **PatentPairwiseCitations_forPost2022.csv**: Patent citation pairs up to 2022
+- **PatentSimilarityImportanceBreakthrough_forPost2022.csv**: Patent level panel data with patent forward (impact) and backward (novelty) similarities, importance, and breakthrough indicators from 1836 to the present 
+- **PatentFullCPC_forPost2022.csv**: a dataset containing the assigned CPC technology class to all patents issued from 1836 to 2022
+- **PatentPairwiseCitations_forPost2022.csv**: A dataset that contains updated citation pairs from the original paper augmented with data from the USPTO until the end of 2022
 
 
 For the patent-level panel data, the variable definitions are:
@@ -44,7 +45,7 @@ For the patent-CPC class match data, the variable definitions are:
 | Variable name | Definition                             |
 | :------------ | :------------------------------------- |
 | patent\_num          | Patent ID number                       |
-| CPC           | Full CPC class of patent             |
+| CPC           | Full CPC class of a patent             |
 
 
 For the patent citations data, the variable definitions are:
@@ -60,19 +61,17 @@ For the patent citations data, the variable definitions are:
 
 ## Notes
 
-1. The 2022 updated sample contains 11,474,838 patents, covering the period from 1836 to 2022. Out of these, 11,899 patents do not have CPC records in the patent-CPC linkage file. The original KPST(2021) sample consists of 9,072,704 patents from 1836 to 2015.
+1. Our patent indicators are affected by truncation lags (patents only appear in the dataset when they are issued). As a result, we compute patent importance, and breakthrough indicators until 2011 (for the 10-year forward measure) and until 2016 (for the 5-year forward measure).
 
-2. Given the specified forward and backward year ranges, our data covers patents‘ 10-year importance measures from 1840 to 2011 and 5-year importance measures from 1840 to 2016. 
+2. The patent's importance measure and breakthrough indicators may not precisely match the original version of the data due to the following reasons:
 
-3. The patent's importance measure and breakthrough indicators may not precisely match the original version of the data in the paper due to the following reasons:
-
-    - **Text source**: We download the text from Google Patents again, and Google Patent texts change as improvements in OCR technology.
+    - **Changes in the raw patent text data**: The extended data is constructed using a new scrape of Google Patents database. The text of patents in Google Patent  does change for some patents, likely due to  improvements in OCR technology.
   
-    - **Year mismatch**: We find that 294 patents have the wrong filing years (filed year > issued year) in the original patent-year linkage file [PatentChar.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentChar.dta.zip). We modify this by assuming their filing years identical to their issued years, given those mismatched patents primarily from year 1882-1884. The updated information on the patent's filing and issued years are also included in **PatentSimilarityImportanceBreakthrough_forPost2022.csv**.
-  
-    - **Text cleaning**: We improve the text cleaning process by excluding a few more frequently occurring but irrelevant phrases, such as "United States Patent Office," "sheets-sheet," etc., in the raw text files. Those phrases predominantly appear in the patents from earlier years (before 1926).
+    - **Errors in Filing Years**: 294 patents, primarily from year 1882-1884, had the wrong filing year in the original data. These have been corrected.
 
-4. The patent pairwise citation data is constructed from KPST pairwise citations by augmenting it with newer pairwise citation records from USPTO. The forward citation data can be further constructed by counting the forward citations given year horizons, based on the gap of filing years between the citing and cited patents, as referred to the original KPST forward citation file [PatentCitations.dta](https://github.com/KPSS2017/Measuring-Technological-Innovation-Over-the-Long-Run-Replication-Kit/blob/master/input_data/PatentCitations.dta.zip).
+    - **Improvements in Text Cleaning**: We have improved the text cleaning process by excluding a few more frequently occurring but irrelevant phrases, such as "United States Patent Office," "sheets-sheet," etc., in the raw text files. Those phrases predominantly appear in the patents from earlier years (before 1926).
+
+3. The patent pairwise citation data is constructed from KPST pairwise citations by augmenting it with newer pairwise citation records from USPTO. Using this data, researchers can create analogous measures as our baseline indicators, by restricting the horizon over which forward citations are constructed.
 
 
 
@@ -82,4 +81,5 @@ For the patent citations data, the variable definitions are:
 
 Please contact Dimitris Papanikolaou (d-papanikolaou@kellogg.northwestern.edu) or Amit Seru (aseru@stanford.edu) for any questions regarding the data.
 
-**Please see the paper for more information on the data. If you use these data sets, please CITE this paper as the data source.**
+**Please see the paper for more information on the data. If you use these data sets, please cite [Kelly, B., Papanikolaou, D., Seru, A. and Taddy, M., 2021.](https://www.aeaweb.org/articles?id=10.1257/aeri.20190499) as the source based on which these data have been generated.**
+
